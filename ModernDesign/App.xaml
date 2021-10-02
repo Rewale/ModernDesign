@@ -4,12 +4,16 @@
              xmlns:local="clr-namespace:ModernDesign"
              xmlns:viewModel ="clr-namespace:ModernDesign.MVVM.ViewModel"
               xmlns:view ="clr-namespace:ModernDesign.MVVM.View"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
+             StartupUri="MVVM/View/authWindow.xaml"
+             xmlns:ui="http://schemas.modernwpf.com/2019">
+    <Application.Resources>        
         <ResourceDictionary>
+           
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/TextboxTheme.xaml"/>
+                <ui:ThemeResources />
+                <ui:XamlControlsResources />
             </ResourceDictionary.MergedDictionaries>
             
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
@@ -18,6 +22,10 @@
 
             <DataTemplate DataType="{x:Type viewModel:DicoveryViewModel}">
                 <view:DiscoveryView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:booksgiveViewModel}">
+                <view:bookGiveView/>
             </DataTemplate>
 
         </ResourceDictionary>

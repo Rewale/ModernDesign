@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8019dfb4df284ec1885808656c796694" Name="Diagram1">
+        <EntityTypeShape EntityType="bibliotekaModel.books" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="bibliotekaModel.chitatelskii_bilet" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="bibliotekaModel.dolzhnost" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="bibliotekaModel.examplar" Width="1.5" PointX="3" PointY="8.875" />
+        <EntityTypeShape EntityType="bibliotekaModel.kartoteka_chitatel" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="bibliotekaModel.Personal" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="bibliotekaModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="bibliotekaModel.vkladish" Width="1.5" PointX="5.25" PointY="9" />
+        <AssociationConnector Association="bibliotekaModel.FK_examplar_books" />
+        <AssociationConnector Association="bibliotekaModel.FK_kartoteka_chitatel_chitatelskii_bilet" />
+        <AssociationConnector Association="bibliotekaModel.FK_Personal_dolzhnost" />
+        <AssociationConnector Association="bibliotekaModel.FK_kartoteka_chitatel_examplar" />
+        <AssociationConnector Association="bibliotekaModel.FK_vkladish_examplar" />
+        <AssociationConnector Association="bibliotekaModel.FK_kartoteka_chitatel_Personal" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

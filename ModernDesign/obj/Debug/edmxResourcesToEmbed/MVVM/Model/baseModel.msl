@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище bibliotekaModelContainer" CdmEntityContainer="bibliotekaEntities">
+    <EntitySetMapping Name="books">
+      <EntityTypeMapping TypeName="bibliotekaModel.books">
+        <MappingFragment StoreEntitySet="books">
+          <ScalarProperty Name="kolvo_ekzemplyarov_knigi_v_biblioteke" ColumnName="kolvo_ekzemplyarov_knigi_v_biblioteke" />
+          <ScalarProperty Name="stoimost" ColumnName="stoimost" />
+          <ScalarProperty Name="Kolvo_str" ColumnName="Kolvo_str" />
+          <ScalarProperty Name="god_izdaniya" ColumnName="god_izdaniya" />
+          <ScalarProperty Name="izdatelstvo" ColumnName="izdatelstvo" />
+          <ScalarProperty Name="mesto_izdaniya" ColumnName="mesto_izdaniya" />
+          <ScalarProperty Name="fam_avtora" ColumnName="fam_avtora" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id_book" ColumnName="id_book" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chitatelskii_bilet">
+      <EntityTypeMapping TypeName="bibliotekaModel.chitatelskii_bilet">
+        <MappingFragment StoreEntitySet="chitatelskii_bilet">
+          <ScalarProperty Name="Data_rozhdenia" ColumnName="Data_rozhdenia" />
+          <ScalarProperty Name="Domachnii_tel" ColumnName="Domachnii_tel" />
+          <ScalarProperty Name="Rapochii_tel" ColumnName="Rapochii_tel" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="id_chit_bileta" ColumnName="id_chit_bileta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dolzhnost">
+      <EntityTypeMapping TypeName="bibliotekaModel.dolzhnost">
+        <MappingFragment StoreEntitySet="dolzhnost">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id_dolzhnost" ColumnName="id_dolzhnost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="examplar">
+      <EntityTypeMapping TypeName="bibliotekaModel.examplar">
+        <MappingFragment StoreEntitySet="examplar">
+          <ScalarProperty Name="mesto_razmeshenia_v_biblioteke" ColumnName="mesto_razmeshenia_v_biblioteke" />
+          <ScalarProperty Name="id_book" ColumnName="id_book" />
+          <ScalarProperty Name="id_exemplar" ColumnName="id_exemplar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kartoteka_chitatel">
+      <EntityTypeMapping TypeName="bibliotekaModel.kartoteka_chitatel">
+        <MappingFragment StoreEntitySet="kartoteka_chitatel">
+          <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+          <ScalarProperty Name="id_exemplar" ColumnName="id_exemplar" />
+          <ScalarProperty Name="id_chitatelskii_bilet" ColumnName="id_chitatelskii_bilet" />
+          <ScalarProperty Name="date_vidachi_book" ColumnName="date_vidachi_book" />
+          <ScalarProperty Name="date_vozvrat_book" ColumnName="date_vozvrat_book" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personal">
+      <EntityTypeMapping TypeName="bibliotekaModel.Personal">
+        <MappingFragment StoreEntitySet="Personal">
+          <ScalarProperty Name="id_dolzhnost" ColumnName="id_dolzhnost" />
+          <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="bibliotekaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vkladish">
+      <EntityTypeMapping TypeName="bibliotekaModel.vkladish">
+        <MappingFragment StoreEntitySet="vkladish">
+          <ScalarProperty Name="date_vozvrata_book" ColumnName="date_vozvrata_book" />
+          <ScalarProperty Name="date_vidachi_book" ColumnName="date_vidachi_book" />
+          <ScalarProperty Name="id_vkladish" ColumnName="id_vkladish" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище bibliotekaModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище bibliotekaModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище bibliotekaModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище bibliotekaModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="bibliotekaModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище bibliotekaModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="bibliotekaModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище bibliotekaModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище bibliotekaModel.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

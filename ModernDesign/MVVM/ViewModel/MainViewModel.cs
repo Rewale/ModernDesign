@@ -11,7 +11,8 @@ namespace ModernDesign.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand DicoveryViewCommand { get; set; }
-
+        public RelayCommand SearchEnterACCommand { get; set;}
+        public RelayCommand SearchChoosen { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
 
@@ -43,7 +44,7 @@ namespace ModernDesign.MVVM.ViewModel
             DicoveryViewCommand = new RelayCommand(o =>
             {
                 CurrentView = DicoveryVM;
-            });
+            });            
         }
     }
 }

@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bibliotekaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bibliotekaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="books" EntityType="bibliotekaModel.books" />
+    <EntitySet Name="chitatelskii_bilet" EntityType="bibliotekaModel.chitatelskii_bilet" />
+    <EntitySet Name="dolzhnost" EntityType="bibliotekaModel.dolzhnost" />
+    <EntitySet Name="examplar" EntityType="bibliotekaModel.examplar" />
+    <EntitySet Name="kartoteka_chitatel" EntityType="bibliotekaModel.kartoteka_chitatel" />
+    <EntitySet Name="Personal" EntityType="bibliotekaModel.Personal" />
+    <EntitySet Name="sysdiagrams" EntityType="bibliotekaModel.sysdiagrams" />
+    <EntitySet Name="vkladish" EntityType="bibliotekaModel.vkladish" />
+    <AssociationSet Name="FK_examplar_books" Association="bibliotekaModel.FK_examplar_books">
+      <End Role="books" EntitySet="books" />
+      <End Role="examplar" EntitySet="examplar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kartoteka_chitatel_chitatelskii_bilet" Association="bibliotekaModel.FK_kartoteka_chitatel_chitatelskii_bilet">
+      <End Role="chitatelskii_bilet" EntitySet="chitatelskii_bilet" />
+      <End Role="kartoteka_chitatel" EntitySet="kartoteka_chitatel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_dolzhnost" Association="bibliotekaModel.FK_Personal_dolzhnost">
+      <End Role="dolzhnost" EntitySet="dolzhnost" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kartoteka_chitatel_examplar" Association="bibliotekaModel.FK_kartoteka_chitatel_examplar">
+      <End Role="examplar" EntitySet="examplar" />
+      <End Role="kartoteka_chitatel" EntitySet="kartoteka_chitatel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vkladish_examplar" Association="bibliotekaModel.FK_vkladish_examplar">
+      <End Role="examplar" EntitySet="examplar" />
+      <End Role="vkladish" EntitySet="vkladish" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kartoteka_chitatel_Personal" Association="bibliotekaModel.FK_kartoteka_chitatel_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="kartoteka_chitatel" EntitySet="kartoteka_chitatel" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(bibliotekaModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(bibliotekaModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <EntityType Name="books">
+    <Key>
+      <PropertyRef Name="id_book" />
+    </Key>
+    <Property Name="id_book" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="fam_avtora" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="mesto_izdaniya" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="izdatelstvo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="god_izdaniya" Type="Int32" />
+    <Property Name="Kolvo_str" Type="Int32" />
+    <Property Name="stoimost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="kolvo_ekzemplyarov_knigi_v_biblioteke" Type="Int32" />
+    <NavigationProperty Name="examplar" Relationship="bibliotekaModel.FK_examplar_books" FromRole="books" ToRole="examplar" />
+  </EntityType>
+  <EntityType Name="chitatelskii_bilet">
+    <Key>
+      <PropertyRef Name="id_chit_bileta" />
+    </Key>
+    <Property Name="id_chit_bileta" Type="Int32" Nullable="false" />
+    <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rapochii_tel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Domachnii_tel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Data_rozhdenia" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="kartoteka_chitatel" Relationship="bibliotekaModel.FK_kartoteka_chitatel_chitatelskii_bilet" FromRole="chitatelskii_bilet" ToRole="kartoteka_chitatel" />
+  </EntityType>
+  <EntityType Name="dolzhnost">
+    <Key>
+      <PropertyRef Name="id_dolzhnost" />
+    </Key>
+    <Property Name="id_dolzhnost" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Personal" Relationship="bibliotekaModel.FK_Personal_dolzhnost" FromRole="dolzhnost" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="examplar">
+    <Key>
+      <PropertyRef Name="id_exemplar" />
+    </Key>
+    <Property Name="id_exemplar" Type="Int32" Nullable="false" />
+    <Property Name="id_book" Type="Int32" />
+    <Property Name="mesto_razmeshenia_v_biblioteke" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="books" Relationship="bibliotekaModel.FK_examplar_books" FromRole="examplar" ToRole="books" />
+    <NavigationProperty Name="kartoteka_chitatel" Relationship="bibliotekaModel.FK_kartoteka_chitatel_examplar" FromRole="examplar" ToRole="kartoteka_chitatel" />
+    <NavigationProperty Name="vkladish" Relationship="bibliotekaModel.FK_vkladish_examplar" FromRole="examplar" ToRole="vkladish" />
+  </EntityType>
+  <EntityType Name="kartoteka_chitatel">
+    <Key>
+      <PropertyRef Name="date_vidachi_book" />
+    </Key>
+    <Property Name="date_vozvrat_book" Type="DateTime" Precision="3" />
+    <Property Name="date_vidachi_book" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_chitatelskii_bilet" Type="Int32" />
+    <Property Name="id_exemplar" Type="Int32" />
+    <Property Name="id_personal" Type="Int32" />
+    <NavigationProperty Name="chitatelskii_bilet" Relationship="bibliotekaModel.FK_kartoteka_chitatel_chitatelskii_bilet" FromRole="kartoteka_chitatel" ToRole="chitatelskii_bilet" />
+    <NavigationProperty Name="examplar" Relationship="bibliotekaModel.FK_kartoteka_chitatel_examplar" FromRole="kartoteka_chitatel" ToRole="examplar" />
+    <NavigationProperty Name="Personal" Relationship="bibliotekaModel.FK_kartoteka_chitatel_Personal" FromRole="kartoteka_chitatel" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="id_personal" />
+    </Key>
+    <Property Name="id_personal" Type="Int32" Nullable="false" />
+    <Property Name="id_dolzhnost" Type="Int32" />
+    <NavigationProperty Name="dolzhnost" Relationship="bibliotekaModel.FK_Personal_dolzhnost" FromRole="Personal" ToRole="dolzhnost" />
+    <NavigationProperty Name="kartoteka_chitatel" Relationship="bibliotekaModel.FK_kartoteka_chitatel_Personal" FromRole="Personal" ToRole="kartoteka_chitatel" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="vkladish">
+    <Key>
+      <PropertyRef Name="id_vkladish" />
+      <PropertyRef Name="date_vidachi_book" />
+    </Key>
+    <Property Name="id_vkladish" Type="Int32" Nullable="false" />
+    <Property Name="date_vidachi_book" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="date_vozvrata_book" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="examplar" Relationship="bibliotekaModel.FK_vkladish_examplar" FromRole="vkladish" ToRole="examplar" />
+  </EntityType>
+  <Association Name="FK_examplar_books">
+    <End Type="bibliotekaModel.books" Role="books" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bibliotekaModel.examplar" Role="examplar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="books">
+        <PropertyRef Name="id_book" />
+      </Principal>
+      <Dependent Role="examplar">
+        <PropertyRef Name="id_book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kartoteka_chitatel_chitatelskii_bilet">
+    <End Type="bibliotekaModel.chitatelskii_bilet" Role="chitatelskii_bilet" Multiplicity="0..1" />
+    <End Type="bibliotekaModel.kartoteka_chitatel" Role="kartoteka_chitatel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="chitatelskii_bilet">
+        <PropertyRef Name="id_chit_bileta" />
+      </Principal>
+      <Dependent Role="kartoteka_chitatel">
+        <PropertyRef Name="id_chitatelskii_bilet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_dolzhnost">
+    <End Type="bibliotekaModel.dolzhnost" Role="dolzhnost" Multiplicity="0..1" />
+    <End Type="bibliotekaModel.Personal" Role="Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dolzhnost">
+        <PropertyRef Name="id_dolzhnost" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="id_dolzhnost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kartoteka_chitatel_examplar">
+    <End Type="bibliotekaModel.examplar" Role="examplar" Multiplicity="0..1" />
+    <End Type="bibliotekaModel.kartoteka_chitatel" Role="kartoteka_chitatel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="examplar">
+        <PropertyRef Name="id_exemplar" />
+      </Principal>
+      <Dependent Role="kartoteka_chitatel">
+        <PropertyRef Name="id_exemplar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vkladish_examplar">
+    <End Type="bibliotekaModel.examplar" Role="examplar" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bibliotekaModel.vkladish" Role="vkladish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="examplar">
+        <PropertyRef Name="id_exemplar" />
+      </Principal>
+      <Dependent Role="vkladish">
+        <PropertyRef Name="id_vkladish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kartoteka_chitatel_Personal">
+    <End Type="bibliotekaModel.Personal" Role="Personal" Multiplicity="0..1" />
+    <End Type="bibliotekaModel.kartoteka_chitatel" Role="kartoteka_chitatel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="id_personal" />
+      </Principal>
+      <Dependent Role="kartoteka_chitatel">
+        <PropertyRef Name="id_personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

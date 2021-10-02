@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:ModernDesign"
         xmlns:viewModel ="clr-namespace:ModernDesign.MVVM.ViewModel"
         xmlns:view ="clr-namespace:ModernDesign.MVVM.View"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
-        Height="600" Width="920"
+        Height="600" Width="1080"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
@@ -36,24 +37,24 @@
             
             <StackPanel Grid.Row="1">
 
-                <RadioButton Content="Home"
+                <RadioButton Content="Список книг"
                              IsChecked="True"
                              Height="50" 
                              Foreground="White" FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding HomeViewCommand}"/>
-                <RadioButton Content="Features" 
+                <RadioButton Content="Выдача книг" 
                              Height="50" 
                              Foreground="White" FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              />
-                <RadioButton Content="Discovery" 
+                <RadioButton Content="Желтый квадрат" 
                              Height="50" 
                              Foreground="White" FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding DicoveryViewCommand}"/>
             </StackPanel>
-
+            <!--
             <TextBox Width="250"
                      Height="40"
                      VerticalContentAlignment="Center"
@@ -61,6 +62,22 @@
                      Margin="5"
                      Grid.Column="1"
                      Style="{StaticResource ModernTextBox}"/>
+            -->
+            <ui:AutoSuggestBox
+                DisplayMemberPath="name"
+                PlaceholderText="Search" 
+                TextChanged="AutoSuggestBox_TextChanged"
+                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
+                SuggestionChosen="AutoSuggestBox_SuggestionChosen"
+                QueryIcon="Find"
+                Width="300"
+                FontSize="20"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Margin="5"
+                Grid.Column="1"/>
+
+
 
             <ContentControl Grid.Column="1" 
                             Grid.Row="1"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModernWpf.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace ModernDesign.Core
             _execute = execute;
             _canExecute = canExecute;
         }
+        
 
         public bool CanExecute(object parameter)
         {
@@ -34,4 +36,6 @@ namespace ModernDesign.Core
             _execute(parameter);
         }
     }
+
+
 }

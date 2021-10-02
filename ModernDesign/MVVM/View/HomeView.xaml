@@ -5,80 +5,83 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ModernDesign.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <TextBlock Text="Discover" 
-                   Foreground="White"
-                   FontSize="28"
-                   HorizontalAlignment="Left"
-                   Margin="0 0 0 20"/>
-        <StackPanel Orientation="Horizontal">
-            <Border Width="400"
-                    Height="200">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#5bc3ff" Offset="0.0"/>
-                        <GradientStop Color="#3aa0ff" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
+             d:DesignHeight="450" d:DesignWidth="800" 
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:viewModel ="clr-namespace:ModernDesign.MVVM.ViewModel"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             >
+    <UserControl.DataContext>
+        <viewModel:HomeViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
 
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10"
-                                       Rect="0,0,400,200"/>
-                </Border.Clip>
-                <Grid>
-                    <StackPanel>
-                        <TextBlock Text="World leader&#x0a;in global finance"
-                                   Foreground="White"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"/>
-                        <TextBlock Text="Get started today"
-                                   Foreground="White"
-                                   FontSize="18"
-                                   Margin="20,10,10,0"/>
-                    </StackPanel>
-                </Grid>
-                
-            </Border>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
 
-            <Border Width="200"
-                    Height="200"
-                    CornerRadius="10" Margin="45,0,0,0">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#ffc554" Offset="0.0"/>
-                        <GradientStop Color="#ffb73a" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-            
-        </StackPanel>
-        <StackPanel>
-            <StackPanel.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="Margin" Value="15 0 0 0"></Setter>
+        </Grid.ColumnDefinitions>
+
+
+        <TextBlock Foreground="White" VerticalAlignment="Center" FontSize="36" HorizontalAlignment="Center" Text="{Binding nameUser}" Style="{StaticResource HeaderTextBlockStyle}" />
+        <Button Visibility="{Binding deleteButtonVisible}" Command="{Binding deleteClick}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Foreground="Black" Background="Gray">
+            Удалить 
+        </Button>
+
+        <ListView   SelectedItem="{Binding SelectedBook}" ItemsSource="{Binding books}"  Grid.Row="1" Grid.ColumnSpan="3" SelectionMode="Single">
+            <ListView.Resources>
+
+            </ListView.Resources>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction 
+                Command="{Binding doubleClickItem}"
+                CommandParameter="{Binding SelectedBook}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="Foreground" Value="White"/>
                 </Style>
-            </StackPanel.Resources>
-            <TextBlock Text="Most Watched" 
-                   Foreground="White"
-                   FontSize="20"
-                   HorizontalAlignment="Left"
-                   Margin="0 0 0 10"/>
-            <StackPanel Orientation="Horizontal">
-                <Border Width="150" Height="150"
-                        Background="#844eff"
-                        CornerRadius="10" 
-                        Margin="0"/>
-                <Border Width="150" Height="150"
-                        Background="#4e99ff"
-                        CornerRadius="10"/>
-                <Border Width="150" Height="150"
-                        Background="#4eff91"
-                        CornerRadius="10"/>
-                <Border Width="150" Height="150"
-                        Background="#ecff4e"
-                        CornerRadius="10"/>
-            </StackPanel>
-        </StackPanel>
-    </StackPanel>
+
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding fam_avtora}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Grid.Column="1" Text="{Binding name}"></TextBlock>
+
+                        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="{Binding Kolvo_str}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Text="{Binding izdatelstvo}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" Text="{Binding god_izdaniya}"></TextBlock>
+
+
+
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </UserControl>
