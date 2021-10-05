@@ -29,7 +29,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Elysian" VerticalAlignment="Center"
+            <TextBlock Text="Библиотека" VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="22"
@@ -45,6 +45,7 @@
                              Command="{Binding HomeViewCommand}"/>
                 <RadioButton Content="Выдача книг" 
                              Height="50" 
+                             Command="{Binding GivenBookViewCommand}"
                              Foreground="White" FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              />
@@ -76,6 +77,9 @@
                 HorizontalAlignment="Left"
                 Margin="5"
                 Grid.Column="1"/>
+
+            <TextBlock Grid.Column="1" Foreground="White" VerticalAlignment="Center" FontSize="36" HorizontalAlignment="Center" Text="{Binding nameUser}" Style="{StaticResource HeaderTextBlockStyle}" />
+
 
 
 

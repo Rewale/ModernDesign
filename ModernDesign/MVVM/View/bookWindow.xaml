@@ -7,7 +7,7 @@
         mc:Ignorable="d"
          xmlns:ui="http://schemas.modernwpf.com/2019"
     ui:WindowHelper.UseModernWindowStyle="True" Background="#282828"
-        Title="bookWindow" Height="450" Width="550">
+        Title="bookWindow" Height="auto" Width="550">
     <Grid Margin="10" HorizontalAlignment="Center">
 
         <Grid x:Name="grid1" VerticalAlignment="Top"  HorizontalAlignment="Left">
@@ -19,6 +19,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -45,9 +48,15 @@
             <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Стоимость:" Foreground="White"/>
             <TextBox x:Name="stoimostTextBox" Width="300" VerticalAlignment="Center" Text="{Binding stoimost, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
 
-            <Button Click="Button_Click" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Black"  HorizontalAlignment="Center" Margin="0, 30" Background="AliceBlue" RenderTransformOrigin="0.5,0.5" Width="179" Height="48" Content="Сохранить">
+            <Button Click="Button_Click" Grid.Row="9" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Center" Margin="0, 30" Background="AliceBlue" RenderTransformOrigin="0.5,0.5" Width="179" Height="48" Content="Сохранить">
                 
             </Button>
+            
+            <Button Click="add_Click" Grid.Row="10" Grid.Column="0"  Foreground="Black"  HorizontalAlignment="Center" Margin="0, 30" Background="AliceBlue" RenderTransformOrigin="0.5,0.5" Width="179" Height="48" Content="Добавить экземпляры
+                    ">
+
+            </Button>
+            <TextBox x:Name="countEx" Width="300" VerticalAlignment="Center" Text="{Binding exempCount}" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
 
         </Grid>
 

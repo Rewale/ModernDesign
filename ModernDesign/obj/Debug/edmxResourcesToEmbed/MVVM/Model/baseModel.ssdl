@@ -36,7 +36,7 @@
     <Key>
       <PropertyRef Name="id_exemplar" />
     </Key>
-    <Property Name="id_exemplar" Type="int" Nullable="false" />
+    <Property Name="id_exemplar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_book" Type="int" />
     <Property Name="mesto_razmeshenia_v_biblioteke" Type="nvarchar" MaxLength="100" />
   </EntityType>

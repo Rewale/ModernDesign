@@ -9,10 +9,11 @@
 
 namespace ModernDesign.MVVM.Model
 {
+    using ModernDesign.Core;
     using System;
     using System.Collections.Generic;
     
-    public partial class kartoteka_chitatel
+    public partial class kartoteka_chitatel: ObservableObject
     {
         public Nullable<System.DateTime> date_vozvrat_book { get; set; }
         public System.DateTime date_vidachi_book { get; set; }
@@ -23,5 +24,17 @@ namespace ModernDesign.MVVM.Model
         public virtual chitatelskii_bilet chitatelskii_bilet { get; set; }
         public virtual examplar examplar { get; set; }
         public virtual Personal Personal { get; set; }
+        public Nullable<System.DateTime> dateVozvratNotified
+        {
+            get
+            {
+                return date_vozvrat_book;
+            }
+            set
+            {
+                date_vozvrat_book = value;
+                OnPropertyChanged(nameof(dateVozvratNotified));
+            }
+        }
     }
 }

@@ -304,3 +304,5 @@ C:\Users\usersql\Desktop\modernui\ModernDesign\ModernDesign\obj\Debug\MVVM\View\
 C:\Users\usersql\Desktop\modernui\ModernDesign\ModernDesign\obj\Debug\MVVM\View\bookWindow.baml
 C:\Users\usersql\Desktop\modernui\ModernDesign\ModernDesign\obj\Debug\MVVM\View\bookGiveView.g.cs
 C:\Users\usersql\Desktop\modernui\ModernDesign\ModernDesign\obj\Debug\MVVM\View\bookGiveView.baml
+C:\Users\usersql\Desktop\modernui\ModernDesign\ModernDesign\obj\Debug\MVVM\View\giveBookWindow.g.cs
+C:\Users\usersql\Desktop\modernui\ModernDesign\ModernDesign\obj\Debug\MVVM\View\giveBookWindow.baml

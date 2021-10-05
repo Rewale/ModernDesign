@@ -21,6 +21,7 @@ namespace ModernDesign.MVVM.View
     public partial class bookWindow : Window
     {
         bool isEdit = true;
+        //public int exempCount { get; set; }
 
         public bookWindow(books book)
         {
@@ -47,6 +48,26 @@ namespace ModernDesign.MVVM.View
             catch
             {
                 MessageBox.Show("Error", "123",MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+        }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            var book = (DataContext as books);
+            int count = int.Parse(countEx.Text);
+            for (int i = 0; i < count; i++)
+            {
+                var exm = new examplar() { books=book};
+                db.GetContext().examplar.Add(exm);
+            }
+            try
+            {                
+                db.GetContext().SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("error", "error");
             }
             
         }
