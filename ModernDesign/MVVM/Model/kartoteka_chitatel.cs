@@ -12,7 +12,9 @@ namespace ModernDesign.MVVM.Model
     using ModernDesign.Core;
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows;
+
+
     public partial class kartoteka_chitatel: ObservableObject
     {
         public Nullable<System.DateTime> date_vozvrat_book { get; set; }
@@ -35,6 +37,6 @@ namespace ModernDesign.MVVM.Model
                 date_vozvrat_book = value;
                 OnPropertyChanged(nameof(dateVozvratNotified));
             }
-        }
+        }        
     }
 }

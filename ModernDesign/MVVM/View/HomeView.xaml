@@ -29,7 +29,7 @@
 
         <TextBlock Foreground="White" VerticalAlignment="Center" FontSize="36" HorizontalAlignment="Center" Text="{Binding nameUser}" Style="{StaticResource HeaderTextBlockStyle}" />
         <Button Visibility="{Binding deleteButtonVisible}" Command="{Binding deleteClick}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Foreground="Black" Background="Gray">
-            Удалить 
+            Списать 
         </Button>
 
         <ListView   SelectedItem="{Binding SelectedBook}" ItemsSource="{Binding books}"  Grid.Row="1" Grid.ColumnSpan="3" SelectionMode="Single">

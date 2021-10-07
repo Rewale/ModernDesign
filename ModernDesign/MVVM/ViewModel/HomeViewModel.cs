@@ -17,12 +17,21 @@ namespace ModernDesign.MVVM.ViewModel
         public string nameUser { get; set; }
 
         public books SelectedBook { get; set; }
-        private Visibility _deleteButtonVisible = Visibility.Hidden;
+        //private Visibility _deleteButtonVisible;
         public Visibility deleteButtonVisible
         {
             get
             {
-                return _deleteButtonVisible;
+                switch (Manager.currentRole)
+                {
+                    case Manager.Role.Reader:
+                        return Visibility.Hidden;
+                    case Manager.Role.Worker:
+                        return Visibility.Visible;
+                    default:
+                        return Visibility.Collapsed;
+                }
+                //return _deleteButtonVisible;
             }
         }
 

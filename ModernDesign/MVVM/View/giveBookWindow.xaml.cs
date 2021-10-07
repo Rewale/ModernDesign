@@ -24,7 +24,7 @@ namespace ModernDesign.MVVM.View
         {
             InitializeComponent();
             booksBox.ItemsSource = db.GetContext().books.Where(p => p.examplar.Where(g=>g.kartoteka_chitatel.Count == 0).Count() > 0).ToList();
-            chitsBox.ItemsSource = db.GetContext().chitatelskii_bilet.Where(p => p.kartoteka_chitatel.Count < 5).ToList();
+            chitsBox.ItemsSource = db.GetContext().chitatelskii_bilet.Where(p => p.kartoteka_chitatel.Where(g=>g.date_vozvrat_book == null).Count() < 5).ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,7 +35,7 @@ namespace ModernDesign.MVVM.View
 
             zapis.chitatelskii_bilet = chitsBox.SelectedItem as chitatelskii_bilet;
             zapis.date_vidachi_book = DateTime.Now;
-            zapis.examplar = book.examplar.First();
+            zapis.examplar = exmpBox.SelectedItem as examplar;
 
             try
             {
@@ -48,6 +48,13 @@ namespace ModernDesign.MVVM.View
                 MessageBox.Show("Error", "Error");
                 //throw;
             }
+        }
+        
+
+        private void booksBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var book = (booksBox.SelectedItem as books);
+            exmpBox.ItemsSource = db.GetContext().examplar.Where(p => p.books.id_book == book.id_book && p.kartoteka_chitatel.Count == 0).ToList();
         }
     }
 }

@@ -12,8 +12,43 @@ namespace ModernDesign.MVVM.ViewModel
 {
     class booksgiveViewModel:ObservableObject
     {
+        private bool _onlyWOVozvrat=false;
+
+        public bool onlyWOVozvrat
+        {
+            get
+            {
+                return _onlyWOVozvrat;
+            }
+            set
+            {
+                _onlyWOVozvrat = value;
+                if(value)
+                {
+                    Givenbooks = db.GetContext().kartoteka_chitatel.Where(p => p.date_vozvrat_book == null).ToList();
+                }
+                else
+                {
+                    Givenbooks = db.GetContext().kartoteka_chitatel.ToList();
+                }
+            }
+        }
+
         public Action CloseAction { get; set; }
-        public List<kartoteka_chitatel> Givenbooks { get; set; }
+
+        private List<kartoteka_chitatel> _givenbooks;
+        public List<kartoteka_chitatel> Givenbooks
+        {
+            get
+            {
+                return _givenbooks;
+            }
+            set
+            {
+                _givenbooks = value;
+                OnPropertyChanged(nameof(Givenbooks));
+            }
+        }
         //public string nameUser { get; set; }
 
         public kartoteka_chitatel SelectedVkladish { get; set; }

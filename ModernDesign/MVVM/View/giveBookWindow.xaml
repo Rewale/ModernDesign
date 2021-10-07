@@ -14,7 +14,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
 
             </Grid.RowDefinitions>
@@ -23,9 +23,13 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label  VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Книга:" Foreground="White" FontSize="24"/>
-            <ComboBox DisplayMemberPath="name"  x:Name="booksBox" Width="300" VerticalAlignment="Center"  Grid.Row="0" Margin="3"  HorizontalAlignment="Left" Grid.Column="1" Foreground="White" FontSize="24"/>
+            <ComboBox SelectionChanged="booksBox_SelectionChanged" DisplayMemberPath="name"  x:Name="booksBox" Width="300" VerticalAlignment="Center"  Grid.Row="0" Margin="3"  HorizontalAlignment="Left" Grid.Column="1" Foreground="White" FontSize="24"/>
             <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Читатель:" Foreground="White" FontSize="24"/>
             <ComboBox DisplayMemberPath="FIO" x:Name="chitsBox" Width="300" VerticalAlignment="Center"  Grid.Row="1" Margin="3"  HorizontalAlignment="Left" Grid.Column="1" Foreground="White" FontSize="24"/>
+
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Экземпляр:" Foreground="White" FontSize="24"/>
+            <ComboBox  DisplayMemberPath="id_exemplar" x:Name="exmpBox" Width="300" VerticalAlignment="Center"  Grid.Row="2" Margin="3"  HorizontalAlignment="Left" Grid.Column="1" Foreground="White" FontSize="24"/>
+
 
             <Button Click="Button_Click" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Black"  HorizontalAlignment="Center" Margin="0, 30" Background="AliceBlue" RenderTransformOrigin="0.5,0.5" Width="179" Height="48" Content="Выдать">
 

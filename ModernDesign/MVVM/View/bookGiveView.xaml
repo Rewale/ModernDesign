@@ -25,7 +25,10 @@
         </Grid.ColumnDefinitions>
 
         <Button HorizontalAlignment="Center" Content="Выдать" Grid.Row="1" Command="{Binding giveBookClick}" Visibility="{Binding giveButtonVis}"/>
-
+        <StackPanel Margin="0 15 0 0" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+            <Label>Показать только книги в пользовании:</Label>
+            <CheckBox HorizontalAlignment="Left" IsChecked="{Binding onlyWOVozvrat}"/>
+        </StackPanel>
         <ListView Grid.ColumnSpan="3" SelectedItem="{Binding SelectedVkladish}" ItemsSource="{Binding Givenbooks}"   SelectionMode="Single">
             <ListView.Resources>
 

@@ -47,6 +47,7 @@ namespace ModernDesign
 
         private void AutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
+            (sender as AutoSuggestBox).Text = (args.SelectedItem as books).name;
 
             // Set sender.Text. You can use args.SelectedItem to build your text string.
             switch (Manager.currentRole)
@@ -60,7 +61,7 @@ namespace ModernDesign
                         MessageBox.Show("Книги нет в наличии");
                     break;
                 case Manager.Role.Worker:
-                    new bookWindow(args.SelectedItem as books);
+                    new bookWindow(args.SelectedItem as books).ShowDialog();
                     break;
                 default:
                     break;
@@ -80,6 +81,16 @@ namespace ModernDesign
             {
                 // Use args.QueryText to determine what to do.
             }
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
          xmlns:ui="http://schemas.modernwpf.com/2019"
     ui:WindowHelper.UseModernWindowStyle="True" Background="#282828"
-        Title="bookWindow" Height="auto" Width="550">
+        Title="bookWindow" Height="550" Width="550">
     <Grid Margin="10" HorizontalAlignment="Center">
 
         <Grid x:Name="grid1" VerticalAlignment="Top"  HorizontalAlignment="Left">
@@ -21,8 +21,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                
-                <RowDefinition Height="Auto"/>
+
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
 
@@ -31,32 +32,32 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Автор:" Foreground="White"/>
-            <TextBox x:Name="fam_avtoraTextBox" Width="300" VerticalAlignment="Center" Text="{Binding fam_avtora, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Год издания:" Foreground="White"/>
-            <TextBox x:Name="god_izdaniyaTextBox" Width="300" VerticalAlignment="Center" Text="{Binding god_izdaniya, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Издательство:" Foreground="White"/>
-            <TextBox x:Name="izdatelstvoTextBox" Width="300" VerticalAlignment="Center" Text="{Binding izdatelstvo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Количество экземпляров:" Foreground="White"/>
-            <TextBox x:Name="kolvo_ekzemplyarov_knigi_v_bibliotekeTextBox" Width="300" VerticalAlignment="Center" Text="{Binding kolvo_ekzemplyarov_knigi_v_biblioteke, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
-            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Количество страниц:" Foreground="White"/>
-            <TextBox x:Name="kolvo_strTextBox" Width="300" VerticalAlignment="Center" Text="{Binding Kolvo_str, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
-            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Место издания:" Foreground="White"/>
-            <TextBox x:Name="mesto_izdaniyaTextBox" Width="300" VerticalAlignment="Center" Text="{Binding mesto_izdaniya, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
-            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Наименование:" Foreground="White"/>
-            <TextBox x:Name="nameTextBox" Width="300" VerticalAlignment="Center" Text="{Binding name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="7" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
-            <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Стоимость:" Foreground="White"/>
-            <TextBox x:Name="stoimostTextBox" Width="300" VerticalAlignment="Center" Text="{Binding stoimost, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Автор:" Foreground="White"/>
+            <TextBox x:Name="fam_avtoraTextBox" Width="300" VerticalAlignment="Center" Text="{Binding fam_avtora, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3,3,0,3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Год издания:" Foreground="White"/>
+            <TextBox x:Name="god_izdaniyaTextBox" Width="300" VerticalAlignment="Center" Text="{Binding god_izdaniya, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3,3,0,3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Издательство:" Foreground="White"/>
+            <TextBox x:Name="izdatelstvoTextBox" Width="300" VerticalAlignment="Center" Text="{Binding izdatelstvo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3,3,0,3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Количество экземпляров:" Foreground="White"/>
+            <TextBox x:Name="kolvo_ekzemplyarov_knigi_v_bibliotekeTextBox" Width="300" VerticalAlignment="Center" Text="{Binding kolvo_ekzemplyarov_knigi_v_biblioteke, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3,3,0,3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Количество страниц:" Foreground="White"/>
+            <TextBox x:Name="kolvo_strTextBox" Width="300" VerticalAlignment="Center" Text="{Binding Kolvo_str, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3,3,0,3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Место издания:" Foreground="White"/>
+            <TextBox x:Name="mesto_izdaniyaTextBox" Width="300" VerticalAlignment="Center" Text="{Binding mesto_izdaniya, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3,3,0,3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Наименование:" Foreground="White"/>
+            <TextBox x:Name="nameTextBox" Width="300" VerticalAlignment="Center" Text="{Binding name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="7" Margin="3,3,0,3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <Label VerticalAlignment="Center" Grid.Row="8" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Стоимость:" Foreground="White"/>
+            <TextBox x:Name="stoimostTextBox" Width="300" VerticalAlignment="Center" Text="{Binding stoimost, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3,3,0,3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
 
-            <Button Click="Button_Click" Grid.Row="9" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Center" Margin="0, 30" Background="AliceBlue" RenderTransformOrigin="0.5,0.5" Width="179" Height="48" Content="Сохранить">
-                
+            <Button Click="Button_Click" Grid.Row="10" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Center" Margin="0, 30" Background="AliceBlue" RenderTransformOrigin="0.5,0.5" Width="179" Height="48" Content="Сохранить" Grid.ColumnSpan="2">
+
             </Button>
-            
-            <Button Click="add_Click" Grid.Row="10" Grid.Column="0"  Foreground="Black"  HorizontalAlignment="Center" Margin="0, 30" Background="AliceBlue" RenderTransformOrigin="0.5,0.5" Width="179" Height="48" Content="Добавить экземпляры
+
+            <Button Click="add_Click" Grid.Row="9" Grid.Column="0"  Foreground="Black"  HorizontalAlignment="Center" Margin="0, 30" Background="AliceBlue" RenderTransformOrigin="0.5,0.5" Width="179" Height="48" Content="Добавить экземпляры
                     ">
 
             </Button>
-            <TextBox x:Name="countEx" Width="300" VerticalAlignment="Center" Text="{Binding exempCount}" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
+            <TextBox x:Name="countEx" Width="300" VerticalAlignment="Center" Text="{Binding exempCount}" Grid.Row="9" Margin="3,38,0,38" Height="23" HorizontalAlignment="Left" Grid.Column="1" Foreground="White"/>
 
         </Grid>
 

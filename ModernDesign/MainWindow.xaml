@@ -54,6 +54,12 @@
                              Foreground="White" FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding DicoveryViewCommand}"/>
+                <RadioButton Content="Выйти" 
+                             Height="50"                             
+                             Foreground="White" FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Click="Close_Click"/>
+                
             </StackPanel>
             <!--
             <TextBox Width="250"
